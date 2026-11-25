@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas Selector</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 300px;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #172033;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Arial, sans-serif;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #fff0e6;
+      color: #f97316;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .brand {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: -0.4px;
+    }
+
+    .version {
+      margin-top: 2px;
+      color: #98a2b3;
+      font-size: 11px;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 0 -16px 13px;
+      background: #eef0f3;
+    }
+
+    .description {
+      margin: 0 0 14px;
+      color: #667085;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .primary-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 9px;
+      background: #f97316;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 650;
+      cursor: pointer;
+      transition: background 150ms ease, transform 150ms ease;
+    }
+
+    .primary-button:hover {
+      background: #ea580c;
+    }
+
+    .primary-button:active {
+      transform: scale(0.985);
+    }
+
+    .primary-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .button-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .status {
+      display: none;
+      margin-top: 10px;
+      padding: 9px 10px;
+      border: 1px solid #e4e7ec;
+      border-radius: 8px;
+      background: #f9fafb;
+      color: #475467;
+      font-size: 11px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .status.visible {
+      display: block;
+    }
+
+    .status.error {
+      border-color: #fecaca;
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 13px;
+      color: #98a2b3;
+      font-size: 10px;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f97316;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo" aria-hidden="true">A</div>
+
+      <div class="brand">
+        <h1>Atlas Selector</h1>
+        <div class="version">CSS Selector Assistant</div>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <p class="description">
+      Select any element on the page to generate and validate its CSS selector.
+    </p>
+
+    <button id="togglePicker" class="primary-button" type="button">
+      <span class="button-icon" aria-hidden="true">⌖</span>
+      <span>Activate element picker</span>
+    </button>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <span>Local DOM inspection</span>
+    </footer>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

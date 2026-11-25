@@ -1,0 +1,22 @@
+
+{
+  "manifest_version": 3,
+  "name": "Atlas CSS Selector",
+  "version": "0.1.2",
+  "description": "Select webpage elements and generate stable CSS selectors.",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Atlas CSS Selector",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
